@@ -1,0 +1,197 @@
+$highlight-color: #CCA580;
+$primary-font: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+$secondary-font: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+$dark-font: #191816;
+
+body{
+    width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
+    background-image: url("/public/assets/WLH_WebpageBG.jpg");
+    background-size: 3000px;
+    position: fixed;
+
+    .inverted{
+        filter: invert(100%);
+    }
+
+    .store-intro, .aside-store{
+        display: flex;
+        height: 100%;
+
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .brand-logo-primary{
+        z-index: 1;
+
+        width: 800px;
+        cursor: pointer;
+    }
+
+    .nav-logo{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+
+        #nav-logo{
+            position: fixed;
+            width: 250px;
+    
+            padding-top: 60px;
+            padding-left: 120vw;
+        }
+    }
+
+    .aside-store{
+        top: 0;
+        width: 100%;
+        position: fixed;
+
+        pointer-events: none;
+
+        .brand-logo-secondary{
+            height: 100%;
+            width: 200px;
+            transform: translateY(12px);
+            padding-left: 120vw;
+        }
+    }
+
+    #logo1, #logo2{
+        transition: transform 4s ease-in; /* Adjust 1s to control the speed of the animation */
+    }
+
+    #nav-logo{
+        transition:  padding 4s ease-in-out;
+    }
+
+    .store {
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+
+        display: flex;
+        align-items: center;
+      }
+      
+      .carousel-container {
+        overflow: hidden;
+        width: 50vw; /* viewport width for two items */
+        flex-grow: 1;
+      }
+      
+      .carousel-content {
+        display: flex;
+        transition: transform 0.3s ease;
+      }
+      
+      .item {
+        flex: 0 0 25vw; /* each item will take 25% of the viewport width */
+        height: 150px;
+        border: 1px solid black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .control-button {
+        cursor: pointer;
+        background-color: #ddd;
+        padding: 10px 15px;
+        border: none;
+      }
+
+    #banner{
+        z-index: 2;
+
+        width: 100%;
+        position: fixed;
+        display: block;
+        overflow: hidden;
+
+        color: white;
+        background-color: $highlight-color;
+        white-space: nowrap;
+
+        padding: 10px 0;
+        box-sizing: border-box;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0.05rem;
+        font-family: $secondary-font;
+
+        #scrolling-text{
+            -webkit-user-select: none; /* Safari */
+            -ms-user-select: none; /* IE 10 and IE 11 */
+            user-select: none; /* Standard syntax */
+
+            -moz-transform: translateX(100%);
+            -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+            
+            -moz-animation: my-animation 60s linear infinite;
+            -webkit-animation: my-animation 60s linear infinite;
+            animation: my-animation 60s linear infinite;
+        }
+
+        /* for Firefox */
+        @-moz-keyframes my-animation {
+            from { -moz-transform: translateX(100%); }
+            to { -moz-transform: translateX(-100%); }
+        }
+        
+        /* for Chrome */
+        @-webkit-keyframes my-animation {
+            from { -webkit-transform: translateX(100%); }
+            to { -webkit-transform: translateX(-100%); }
+        }
+        
+        @keyframes my-animation {
+            100%{
+                transform: translate(-100%, 0);
+            }
+        }
+
+    }
+
+    .footer {
+        position: fixed;
+        // left: 0;
+        bottom: 0;
+        width: 100%; 
+        // background: -webkit-gradient(linear, left bottom, left top, from(black), to(rgba(0, 0, 0, 0)));
+        background: linear-gradient(0deg, $dark-font 20%, rgba(0, 0, 0, 0));
+        // background: black;
+
+        padding: 300px 0;
+        padding-bottom: 20px;
+
+        color: white;
+        text-align: center;
+
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        column-gap: 40px;
+
+        z-index: 1;
+
+        p{
+            font-family: $secondary-font;
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 0.1rem;
+
+            margin: 20px 10px;
+
+            cursor: pointer;
+
+            transition: 0.6s;
+        }
+        p:hover{
+            color: $highlight-color;
+        }
+    }
+}
