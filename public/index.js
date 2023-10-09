@@ -6,6 +6,7 @@ function slideLogosOut() {
     }, 500);
 
     setTimeout(() => {
+        document.getElementById('nav-logo').classList.add('nav-logo-transition');
         document.getElementById('nav-logo').style.paddingLeft = '0';
         document.getElementById('nav-logo').style.cursor = 'pointer';
     }, 3500);

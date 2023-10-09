@@ -11,6 +11,10 @@ body {
 body .inverted {
   filter: invert(100%);
 }
+body .container {
+  height: 100%;
+  position: relative;
+}
 body .store-intro, body .aside-store {
   display: flex;
   height: 100%;
@@ -27,6 +31,9 @@ body .nav-logo {
   width: 100%;
   justify-content: center;
 }
+body .nav-logo .nav-logo-transition {
+  transition: padding 4s ease-in-out;
+}
 body .nav-logo #nav-logo {
   position: fixed;
   width: 250px;
@@ -34,9 +41,9 @@ body .nav-logo #nav-logo {
   padding-left: 120vw;
 }
 body .aside-store {
+  position: fixed;
   top: 0;
   width: 100%;
-  position: fixed;
   pointer-events: none;
 }
 body .aside-store .brand-logo-secondary {
@@ -48,38 +55,14 @@ body .aside-store .brand-logo-secondary {
 body #logo1, body #logo2 {
   transition: transform 4s ease-in; /* Adjust 1s to control the speed of the animation */
 }
-body #nav-logo {
-  transition: padding 4s ease-in-out;
-}
 body .store {
-  position: fixed;
+  position: absolute;
+  width: 100%;
   top: 0;
   z-index: 1000;
   display: flex;
   align-items: center;
-}
-body .carousel-container {
-  overflow: hidden;
-  width: 50vw; /* viewport width for two items */
-  flex-grow: 1;
-}
-body .carousel-content {
-  display: flex;
-  transition: transform 0.3s ease;
-}
-body .item {
-  flex: 0 0 25vw; /* each item will take 25% of the viewport width */
-  height: 150px;
-  border: 1px solid black;
-  display: flex;
-  align-items: center;
   justify-content: center;
-}
-body .control-button {
-  cursor: pointer;
-  background-color: #ddd;
-  padding: 10px 15px;
-  border: none;
 }
 body #banner {
   z-index: 2;
