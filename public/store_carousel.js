@@ -33,7 +33,7 @@ prevButton.addEventListener('click', () => {
   
   function updateCarousel() {
     const flexboxWidth = window.innerWidth;
-    const itemWidth = (flexboxWidth - 2 * btn_width) / visibleItems + item_margins;
+    const itemWidth = (flexboxWidth - 2 * btn_width) / visibleItems;
     const offset = -currentSlide * itemWidth;
 
     // Apply the transform with a smooth transition
