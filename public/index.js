@@ -11,10 +11,10 @@ function slideLogosOut() {
         document.getElementById('nav-logo').style.cursor = 'pointer';
 
         slideStoreOut();
-    }, 3500);
+    }, 5000);
 }
 
 function slideStoreOut() {
-    document.getElementsByClassName('store')[0].classList.add('transform-transition');
-    document.getElementsByClassName('store')[0].style.transformX = '0';
+    document.getElementById('store').classList.add('transform-transition');
+    document.getElementById('store').style.transform = 'translateX(0)';
 }

@@ -57,9 +57,11 @@ body #logo1, body #logo2 {
   transition: transform 4s ease-in; /* Adjust to control the speed of the animation */
 }
 body .transform-transition {
-  transition: transform 4s ease-in; /* Adjust to control the speed of the animation */
+  transition: transform 4s ease-in-out; /* Adjust to control the speed of the animation */
 }
-body .store {
+body #store {
+  transform: translateX(100%);
+  z-index: 3;
   position: absolute;
   width: 100%;
   height: 100%;

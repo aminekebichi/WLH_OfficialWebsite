@@ -1,15 +1,19 @@
 const btn_width = 200; //pixels
-const item_margins = 20; // pixels
+const item_margins = 40; // pixels
+const carouselPadding = 80; //pixels
 
 const prevButton = document.getElementById('prev');
 const nextButton = document.getElementById('next');
 const content = document.querySelector('.carousel-content');
 
-let visibleItems = 4;
+let visibleItems = 3;
 let currentSlide = 0;
+
+updateCarousel();
 
 document.documentElement.style.setProperty('--visibleItems', visibleItems);
 document.documentElement.style.setProperty('--btn_width', btn_width);
+document.documentElement.style.setProperty('--item_margins', item_margins);
 
 prevButton.addEventListener('click', () => {
     if (currentSlide > 0) {
@@ -32,7 +36,7 @@ prevButton.addEventListener('click', () => {
   });
   
   function updateCarousel() {
-    const flexboxWidth = window.innerWidth;
+    const flexboxWidth = window.innerWidth - carouselPadding;
     const itemWidth = (flexboxWidth - 2 * btn_width) / visibleItems;
     const offset = -currentSlide * itemWidth;
 
@@ -88,18 +92,38 @@ carouselContainer.addEventListener('wheel', (event) => {
           scrollPrev();
       }
   }
+  
+  // Capture scroll velocity for momentum
+  scrollingVelocity = event.deltaY;
+  isScrolling = true;
 });
 
-function scrollNext() {
-  if (currentSlide < content.children.length - visibleItems) {
-      currentSlide++;
+// Add an animation frame to handle momentum scrolling
+function animateMomentumScroll() {
+  if (isScrolling && Math.abs(scrollingVelocity) > 0.01) {
+      currentSlide += (scrollingVelocity / 100); // Adjust the divisor to control momentum speed
       updateCarousel();
+      scrollingVelocity *= 0.9; // Adjust this value to control momentum decay
+      requestAnimationFrame(animateMomentumScroll);
+  } else {
+      isScrolling = false;
   }
 }
 
+const scrollSpeed = 0.25; // Adjust this value to control initial scroll speed
+let scrollingVelocity = 0;
+let isScrolling = false;
+
+function scrollNext() {
+    if (currentSlide < content.children.length - visibleItems) {
+        currentSlide += scrollSpeed; // Increment by scrollSpeed
+        updateCarousel();
+    }
+}
+
 function scrollPrev() {
-  if (currentSlide > 0) {
-      currentSlide--;
-      updateCarousel();
-  }
+    if (currentSlide > 0) {
+        currentSlide -= scrollSpeed; // Decrement by scrollSpeed
+        updateCarousel();
+    }
 }

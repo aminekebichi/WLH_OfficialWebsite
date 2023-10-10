@@ -12,15 +12,23 @@
   }
 
   .item {
-    margin: 0 20px;
-    flex: 0 0 calc((100% / var(--visibleItems)) - 40px);
+    margin: 0 40px !important;
+    flex: 0 0 calc((100% / var(--visibleItems)) - 80px);
     height: 850px;
     border: 1px solid green;
     display: flex;
     align-items: center;
     justify-content: center;
 
-    background: rgba($color: #fff, $alpha: 0.5);
+    background: green;
+  }
+
+  #prev{
+    margin-left: 40px;
+  }
+
+  #next{
+    margin-right: 40px;
   }
 
   .control-button {
