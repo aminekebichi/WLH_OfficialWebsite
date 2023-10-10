@@ -9,5 +9,12 @@ function slideLogosOut() {
         document.getElementById('nav-logo').classList.add('nav-logo-transition');
         document.getElementById('nav-logo').style.paddingLeft = '0';
         document.getElementById('nav-logo').style.cursor = 'pointer';
+
+        slideStoreOut();
     }, 3500);
+}
+
+function slideStoreOut() {
+    document.getElementsByClassName('store')[0].classList.add('transform-transition');
+    document.getElementsByClassName('store')[0].style.transformX = '0';
 }
